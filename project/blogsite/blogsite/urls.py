@@ -18,7 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from blog import views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index,name='index'),
-]
+    path('',views.home,name='home'),
+    path('blog_form',views.bolg_form,name='blog_form'),
+    path('blog/<int:id>',views.blog_content,name='blog_content'),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block blog_form %}
+<h1>
+    Fill the form bellow to create a new blog
+</h1>
+<form methos="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputTitle" class="form-label">Title</label>
+        <input type="text" class="form-control" id="exampleInputTitle" aria-describedby="titleHelp">
+        <div id="titleHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="imageFile" class="image-label">Image </label>
+        <input class="form-control" type="file" id="imageFile">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlContent" class="form-label">content</label>
+        <textarea class="form-control" id="exampleFormControlContent" rows="3"></textarea>
+    </div>
+    <select class="form-select mb-2" aria-label="Default select example">
+        <option selected>Categories</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock blog_form %}

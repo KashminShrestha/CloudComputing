@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block blog %}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <article>
+                <h2 class="text-center mb-4">Blog Section</h2>
+            </article>
+
+            {% for blog in blogs %}
+            <div class="d-flex flex-row mb-4 align-items-center border rounded p-3">
+                <div class="flex-shrink-0">
+                    <img class="img-fluid rounded" style="max-width: 300px; height: auto;" src="{{ blog.image.url }}"
+                        alt="Blog Image" />
+                </div>
+                <div class="ms-4">
+                     <a href="/blog/{{ blog.id }}"><h5>{{ blog.title }}</h5></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
